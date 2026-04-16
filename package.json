@@ -1,0 +1,40 @@
+{
+  "name": "cloudflare-tunnel-manager",
+  "version": "1.0.0",
+  "type": "module",
+  "description": "Cloudflare Tunnel management tools - manage tunnel configurations and DNS records via Cloudflare API",
+  "main": "dist/tunnel-manager.js",
+  "types": "dist/tunnel-manager.d.ts",
+  "bin": {
+    "cf-tunnel": "./dist/cli.js"
+  },
+  "scripts": {
+    "check": "tsc --noEmit",
+    "build": "tsc",
+    "cli": "node dist/cli.js",
+    "cli:dev": "node --loader ts-node/esm src/cli.ts",
+    "example": "node --loader ts-node/esm example-usage.ts",
+    "dns-check": "node --loader ts-node/esm check-dns.ts",
+    "format": "npx -y prettier --write .",
+    "dev": "node --loader ts-node/esm"
+  },
+  "keywords": [
+    "cloudflare",
+    "tunnel",
+    "cloudflared",
+    "dns",
+    "automation"
+  ],
+  "author": "",
+  "license": "ISC",
+  "packageManager": "pnpm@10.24.0",
+  "dependencies": {
+    "@types/node": "^25.0.6",
+    "cloudflare": "^5.2.0",
+    "tsx": "^4.21.0",
+    "typescript": "^5.9.3"
+  },
+  "devDependencies": {
+    "ts-node": "^10.9.2"
+  }
+}
