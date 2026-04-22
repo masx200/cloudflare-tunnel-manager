@@ -62,7 +62,7 @@ async function main(configPath?: string) {
     // 使用默认配置文件
     finalConfigPath = join(
       __dirname,
-      "services.huggingface-ceuo0ztkqs3qpss.json",
+      "*****************************************",
     );
   }
 
@@ -213,7 +213,7 @@ if (configPathArg === "--help" || configPathArg === "-h") {
 参数:
   配置文件路径  可选,指定要使用的配置文件路径
                 如果不提供,将使用默认配置文件:
-                services.huggingface-ceuo0ztkqs3qpss.json
+                *****************************************
 
 示例:
   node sync-config.js

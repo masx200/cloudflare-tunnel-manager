@@ -177,7 +177,7 @@ curl "https://api.cloudflare.com/client/v4/accounts/$ACCOUNT_ID/teamnet/routes" 
   --header "Authorization: Bearer $CLOUDFLARE_API_TOKEN" \
   --json '{
     "network": "172.16.0.0/16",
-    "tunnel_id": "c1744f8b-faa1-48a4-48e5c-02ac921467fa",
+    "tunnel_id": "************************************",
     "comment": "Example private network route"
   }'
 ```
