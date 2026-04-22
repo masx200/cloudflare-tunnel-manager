@@ -209,7 +209,7 @@ curl "https://api.cloudflare.com/client/v4/zones/$ZONE_ID/dns_records" \
     "type": "CNAME",
     "proxied": true,
     "name": "app1.example.com",
-    "content": "c1744f8b-faa1-48a4-9e5c-02ac921467fa.cfargotunnel.com"
+    "content": "************************************.cfargotunnel.com"
   }'
 ```
 
