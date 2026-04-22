@@ -46,8 +46,8 @@ export class CloudflareTunnelManager {
    */
   async getTunnelConfig(tunnelId: string): Promise<TunnelConfig | null> {
     try {
-      const response = await this.client.zeroTrust.tunnels.cloudflared
-        .configurations.get(
+      const response =
+        await this.client.zeroTrust.tunnels.cloudflared.configurations.get(
           tunnelId,
           {
             account_id: this.accountId,
@@ -273,24 +273,24 @@ export class CloudflareTunnelManager {
   }
 
   /**
-   * 创建新的 Cloudflare Tunnel
+   * 创建新的 Cloudflare Tunnel (Remotely-managed / 云端管理模式)
+   * config_src: "cloudflare" 表示在 Zero Trust 仪表板远程管理，不依赖本地 YAML
    */
-  async createTunnel(tunnelName: string): Promise<{ id: string; token: string } | null> {
+  async createTunnel(
+    tunnelName: string,
+    config_src: "cloudflare" | "local" | undefined = "cloudflare",
+  ): Promise<{ id: string; token: string | null } | null> {
     try {
-      const response = await this.client.zeroTrust.tunnels.cloudflared.create(
-        {
-          account_id: this.accountId,
-          name: tunnelName,
-        },
-      );
-
-      // 打印完整响应用于调试
-      console.log("API 响应:", JSON.stringify(response, null, 2));
+      const response = await this.client.zeroTrust.tunnels.cloudflared.create({
+        account_id: this.accountId,
+        name: tunnelName,
+        config_src: config_src, // 关键：云端管理模式
+      });
 
       // SDK v5 响应可能是 { result: {...} } 或直接返回结果
-      const result = (response as any).result || response;
+      const result = (response as any).result ?? response;
       const tunnelId = result.id;
-      const tunnelToken = result.token;
+      const tunnelToken = result.token ?? null;
 
       if (!tunnelId) {
         console.error("❌ 响应中未找到 tunnel ID");
@@ -299,6 +299,7 @@ export class CloudflareTunnelManager {
 
       console.log(`✅ 隧道创建成功: ${tunnelName}`);
       console.log(`   Tunnel ID: ${tunnelId}`);
+      console.log(`   模式: 云端管理 (config_src: cloudflare)`);
       if (tunnelToken) {
         console.log(`   Tunnel Token: ${tunnelToken}`);
       }

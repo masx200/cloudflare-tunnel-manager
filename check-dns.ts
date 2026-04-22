@@ -44,7 +44,8 @@ async function main() {
     config = JSON.parse(configContent);
     console.log("✓ 已读取本地配置文件");
     console.log(
-      `  Zone ID(s): ${Array.isArray(config.zoneId) ? config.zoneId.join(", ") : config.zoneId
+      `  Zone ID(s): ${
+        Array.isArray(config.zoneId) ? config.zoneId.join(", ") : config.zoneId
       }`,
     );
     console.log(`  Tunnel ID: ${config.tunnelId}`);
@@ -125,7 +126,8 @@ async function main() {
         }
       } catch (error: any) {
         console.log(
-          `  ✗ Token #${i + 1} 失败: ${error.status === 403 ? "权限不足" : error.message
+          `  ✗ Token #${i + 1} 失败: ${
+            error.status === 403 ? "权限不足" : error.message
           }`,
         );
       }
@@ -356,7 +358,8 @@ async function main() {
             const apiToken = apiTokens[tokenIndex];
 
             console.log(
-              `  正在创建: ${hostname} (Token #${tokenIndex + 1
+              `  正在创建: ${hostname} (Token #${
+                tokenIndex + 1
               }, Zone: ${zoneId})`,
             );
 

@@ -45,10 +45,12 @@ async function main() {
   const options = parseOptions(args.slice(1));
 
   // 从环境变量或配置文件获取 API Token 和 Account ID
-  const apiToken = options.apiToken ||
+  const apiToken =
+    options.apiToken ||
     process.env.CLOUDFLARE_API_TOKEN ||
     process.env.CF_API_TOKEN;
-  const accountId = options.accountId ||
+  const accountId =
+    options.accountId ||
     process.env.CLOUDFLARE_ACCOUNT_ID ||
     process.env.CF_ACCOUNT_ID;
 
