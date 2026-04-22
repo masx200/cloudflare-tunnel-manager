@@ -273,6 +273,43 @@ export class CloudflareTunnelManager {
   }
 
   /**
+   * 创建新的 Cloudflare Tunnel
+   */
+  async createTunnel(tunnelName: string): Promise<{ id: string; token: string } | null> {
+    try {
+      const response = await this.client.zeroTrust.tunnels.cloudflared.create(
+        {
+          account_id: this.accountId,
+          name: tunnelName,
+        },
+      );
+
+      // 打印完整响应用于调试
+      console.log("API 响应:", JSON.stringify(response, null, 2));
+
+      // SDK v5 响应可能是 { result: {...} } 或直接返回结果
+      const result = (response as any).result || response;
+      const tunnelId = result.id;
+      const tunnelToken = result.token;
+
+      if (!tunnelId) {
+        console.error("❌ 响应中未找到 tunnel ID");
+        return null;
+      }
+
+      console.log(`✅ 隧道创建成功: ${tunnelName}`);
+      console.log(`   Tunnel ID: ${tunnelId}`);
+      if (tunnelToken) {
+        console.log(`   Tunnel Token: ${tunnelToken}`);
+      }
+      return { id: tunnelId, token: tunnelToken };
+    } catch (error: any) {
+      console.error(`❌ 隧道创建失败:`, error);
+      return null;
+    }
+  }
+
+  /**
    * 列出所有 tunnels
    */
   async listTunnels(): Promise<void> {
