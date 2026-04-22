@@ -57,7 +57,7 @@ console.log({
       name:
         "*********************************************************************",
       type: "CNAME",
-      content: "673de56b-0866-474b-b1f8-67fd8c969f5e.cfargotunnel.com",
+      content: "************************************.cfargotunnel.com",
       proxiable: true,
       proxied: true,
       ttl: 1,
@@ -75,7 +75,7 @@ console.log({
       name:
         "*********************************************************************",
       type: "CNAME",
-      content: "673de56b-0866-474b-b1f8-67fd8c969f5e.cfargotunnel.com",
+      content: "************************************.cfargotunnel.com",
       proxiable: true,
       proxied: true,
       ttl: 1,
@@ -147,7 +147,7 @@ console.log({
       name:
         "*********************************************************************",
       type: "CNAME",
-      content: "673de56b-0866-474b-b1f8-67fd8c969f5e.cfargotunnel.com",
+      content: "************************************.cfargotunnel.com",
       proxiable: true,
       proxied: true,
       ttl: 1,
@@ -165,7 +165,7 @@ console.log({
       name:
         "*********************************************************************",
       type: "CNAME",
-      content: "673de56b-0866-474b-b1f8-67fd8c969f5e.cfargotunnel.com",
+      content: "************************************.cfargotunnel.com",
       proxiable: true,
       proxied: true,
       ttl: 1,
@@ -183,7 +183,7 @@ console.log({
       name:
         "*********************************************************************",
       type: "CNAME",
-      content: "673de56b-0866-474b-b1f8-67fd8c969f5e.cfargotunnel.com",
+      content: "************************************.cfargotunnel.com",
       proxiable: true,
       proxied: true,
       ttl: 1,
